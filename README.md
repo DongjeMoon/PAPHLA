@@ -71,5 +71,3 @@ You may edit yaml file for different model parameters. The predictions will be s
 Parts of the model implementation were adapted from [GraphGPS](https://github.com/rampasek/GraphGPS) which is built using [PyG](https://www.pyg.org/) and [GraphGym from PyG2](https://pytorch-geometric.readthedocs.io/en/2.0.0/notes/graphgym.html).
 
 We thank the original authors for making their code publicly available.
-
-# PAPHLA
