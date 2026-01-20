@@ -23,9 +23,11 @@ pip install torch-geometric==2.6.1
 conda install -y rdkit -c conda-forge
 
 # Others
-pip install tqdm scikit-learn torchmetrics
-
+pip install -r requirments.txt
 conda clean --all -y
+
+# install PAPHLA
+pip install .
 ```
 
 ### Data processing
@@ -33,11 +35,17 @@ All the datasets used in the paper can be obtained from `data/` directory.
 
 Details of data curation and preprocessing can be found in `notebooks/` directory.
 
-We use specifically use `memory-mapped dataset` to allow fast training of large graph datasets in this implementation, but you may use `InMemoryDataset` from `PyG` for much smaller datasets.
+We specifically use `memory-mapped dataset` to allow fast training of large graph datasets in this implementation, but you may use `InMemoryDataset` from `PyG` for much smaller datasets.
 
-To process the data, run:
+To process the data, first unzip preprocessed ESM2 embeddings `paphla/data/esm/hla_esm.zip` and training data `paphla/data/train/train.zip` and run:
 ```bash
-python datasets.py --data/train/train.csv
+# For pretraining
+python data/datasets.py --data data/train/train.csv
+python data/datasets.py --data data/train/val.csv
+
+# For finetuning
+python data/datasets.py --data data/train/train_ptm.csv
+python data/datasets.py --data data/train/val_ptm.csv
 ```
 
 After running the code, it will produce `data/processed/train` directory:
@@ -52,8 +60,8 @@ After running the code, it will produce `data/processed/train` directory:
 ### Training
 To train the model, run:
 ```bash
-python train.py --config/pretrain.yaml
-python train.py --config/finetune.yaml
+python src/train.py --config config/pretrain.yaml
+python src/train.py --config config/finetune.yaml
 ```
 
 You may edit yaml file for different configurations. The trained model parameters will be saved under `models/` directory.
@@ -61,13 +69,13 @@ You may edit yaml file for different configurations. The trained model parameter
 ### Inference
 To test the model, run:
 ```bash
-python predict.py --config/test.yaml
+python src/predict.py --config config/test.yaml
 ```
 
 You may edit yaml file for different model parameters. The predictions will be saved as a `.csv` file under `results/` directory.
 
 
 ### Acknowledgement
-Parts of the model implementation were adapted from [GraphGPS](https://github.com/rampasek/GraphGPS) which is built using [PyG](https://www.pyg.org/) and [GraphGym from PyG2](https://pytorch-geometric.readthedocs.io/en/2.0.0/notes/graphgym.html).
+Parts of the code implementation were adapted from [ALiBi](https://github.com/ofirpress/attention_with_linear_biases), [GroupDRO](https://github.com/kohpangwei/group_DRO), and [GraphGPS](https://github.com/rampasek/GraphGPS).
 
 We thank the original authors for making their code publicly available.

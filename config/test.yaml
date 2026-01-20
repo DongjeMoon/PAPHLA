@@ -1,0 +1,26 @@
+# Data paths
+test_data: "data/test/phosphorylated_el_set.csv"
+
+# Model configuration
+model:
+  dim_h: 32
+  dim_pe: 16
+  dim_esm: 320  # ESM-2 8M model embedding dimension
+  max_len: 15
+  steps: 16
+  num_seeds: 1
+  num_heads: 4
+  dropout: 0.1
+  attn_dropout: 0.5
+  n_gps_layers: 4
+  n_crs_layers: 3
+  residual: true
+  use_rdb: true
+  pool: "PMA" # or "mean"
+
+# Test configuration
+test:
+  save_dir: "results/"
+  print_metrics: True
+  seed: 42
+  model_weight: "PAPHLA_finetune"
