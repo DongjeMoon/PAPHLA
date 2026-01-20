@@ -21,12 +21,11 @@ model:
 
 # Finetuning configuration
 training:
-  lr: 5e-4
-  batch_size: 128
+  batch_size: 256
   epochs: 20
   patience: 5
   seed: 42
-  model_name: "PAPHLA_finetune2"
+  model_name: "PAPHLA_finetune"
   model_weight: "PAPHLA_pretrain"
   finetune: true
 

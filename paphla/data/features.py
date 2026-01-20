@@ -29,16 +29,16 @@ FEATURES = {
         ]                                                                                                     # 6
     },
                                                                                                       ## 12
-    'residue': {
-        'symbol': [
-            'A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I', 
-            'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V'
-        ],
-        'type': [
-            "logp", "total_charge", "mol_weight", "tpsa",
-             "num_h_donors", "num_h_acceptors", "num_rot_bonds"
-        ]
-    },
+    # 'residue': {
+    #     'symbol': [
+    #         'A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I', 
+    #         'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V'
+    #     ],
+    #     'type': [
+    #         "logp", "total_charge", "mol_weight", "tpsa",
+    #          "num_h_donors", "num_h_acceptors", "num_rot_bonds"
+    #     ]
+    # },
 
     'ptm': {
         'type': ['0', 'METH', 'SULF', 'FORM', 'DIMETH', 'PHOS', 'NAc', 'OX', 'HYL',
