@@ -11,7 +11,6 @@ import yaml
 from sklearn.metrics import (accuracy_score, average_precision_score, f1_score,
                              matthews_corrcoef, roc_auc_score)
 from torch.utils.data import DataLoader
-from torch_geometric.graphgym.config import cfg
 from tqdm import tqdm
 from torch_geometric.seed import seed_everything
 
